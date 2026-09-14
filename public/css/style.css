@@ -1,0 +1,871 @@
+/* ==========================================================================
+   Toolnized - Minimalist Framework (Original Theme)
+   ========================================================================== */
+
+:root {
+    /* Brand Colors */
+    --navy-blue: #2c3e50;
+    --soft-teal: #4da8b2;
+    --warm-gray: #d3d7da;
+    --light-bg: #f8f9fa;
+    --white: #ffffff;
+
+    --text-dark: #333333;
+    --text-light: #6c757d;
+    --border-color: #e2e8f0;
+
+    /* Shadows - softer and tighter */
+    --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
+    --shadow-md: 0 2px 4px rgba(0, 0, 0, 0.08);
+
+    /* TIGHTER Spacing */
+    --space-xs: 0.25rem;
+    --space-sm: 0.5rem;
+    --space-md: 1rem;
+    --space-lg: 1.5rem;
+    --space-xl: 2.5rem; /* Significantly reduced from previous versions */
+
+    --radius-sm: 4px;
+    --radius-md: 6px; /* Tighter corners */
+    --radius-lg: 10px;
+}
+
+/* ==========================================================================
+   Global Reset & Foundations
+   ========================================================================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body.tlz-ecosystem {
+    font-family:
+        "Inter",
+        system-ui,
+        -apple-system,
+        sans-serif;
+    background-color: var(--light-bg);
+    color: var(--text-dark);
+    line-height: 1.5;
+    /* Scaled down base font size for a sharper look */
+    font-size: 15px;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    -webkit-font-smoothing: antialiased;
+}
+
+a {
+    color: var(--soft-teal);
+    text-decoration: none;
+    transition: all 0.2s ease;
+}
+
+a:hover {
+    color: var(--navy-blue);
+}
+
+/* ==========================================================================
+   Logo & Brand Alignment
+   ========================================================================== */
+
+.tlz-brand-mark,
+.footer-brand {
+    display: flex;
+    align-items: center;
+    gap: 8px; 
+}
+
+/* Size for the main header logo */
+.brand-logo {
+    height: 28px; 
+    width: auto;
+    object-fit: contain;
+}
+
+.footer-logo {
+    height: 22px;
+    width: auto;
+    object-fit: contain;
+}
+
+.tlz-bounds {
+    width: 100%;
+    max-width: 1200px; 
+    margin: 0 auto;
+    padding: 0 var(--space-md);
+}
+
+/* ==========================================================================
+   Masthead (Header) & Mobile Nav
+   ========================================================================== */
+.tlz-masthead {
+    background: var(--white);
+    border-bottom: 1px solid var(--border-color);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.masthead-inner {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-md);
+    padding-top: 12px;
+    padding-bottom: 12px;
+}
+
+.tlz-brand-mark {
+    font-weight: 700;
+    font-size: 1.25rem;
+    color: var(--navy-blue);
+    letter-spacing: -0.5px;
+}
+
+.tlz-quick-search {
+    flex: 1 1 200px;
+    max-width: 320px;
+}
+
+.search-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.search-icon {
+    position: absolute;
+    left: 10px;
+    width: 14px;
+    height: 14px;
+    color: var(--text-light);
+}
+
+.search-wrapper input {
+    width: 100%;
+    padding: 8px 12px 8px 30px;
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-sm);
+    background: var(--light-bg);
+    font-family: inherit;
+    font-size: 0.9rem;
+    transition: all 0.2s ease;
+}
+
+.search-wrapper input:focus {
+    outline: none;
+    background: var(--white);
+    border-color: var(--soft-teal);
+}
+
+/* Hamburger Icon styling */
+.mobile-menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    color: var(--navy-blue);
+    cursor: pointer;
+    padding: 4px;
+}
+
+.mobile-menu-toggle svg {
+    width: 24px;
+    height: 24px;
+}
+
+.tlz-primary-nav {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+}
+
+.tlz-primary-nav a {
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: var(--text-light);
+    padding: 4px 8px;
+    border-radius: var(--radius-sm);
+}
+
+.tlz-primary-nav a:hover,
+.tlz-primary-nav a.active-node {
+    color: var(--soft-teal);
+    background: var(--light-bg);
+}
+
+/* ==========================================================================
+   Core Interface & Hero
+   ========================================================================== */
+.tlz-core-interface {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-sm);
+    padding-top: var(--space-md);
+    padding-bottom: var(--space-xl);
+}
+
+.tlz-trail {
+    font-size: 0.85rem;
+    color: var(--text-light);
+    font-weight: 500;
+}
+
+.trail-divider {
+    margin: 0 6px;
+    color: var(--warm-gray);
+}
+
+.trail-current {
+    color: var(--navy-blue);
+}
+
+.tlz-command-module {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-md);
+}
+
+.module-intro {
+    text-align: center;
+    margin-bottom: var(--space-sm);
+}
+
+.module-title {
+    font-size: 1.8rem; /* Scaled down */
+    color: var(--navy-blue);
+    margin-bottom: 4px;
+}
+
+.module-subtitle {
+    color: var(--text-light);
+    font-size: 1rem;
+}
+
+/* ==========================================================================
+   Horizontal Calculator Widget
+   ========================================================================== */
+.tlz-calculator-surface {
+    background: var(--white);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-md);
+    padding: var(--space-md);
+    box-shadow: var(--shadow-sm);
+}
+
+.calc-engine {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-md);
+    align-items: end;
+}
+
+.input-node label {
+    display: block;
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--text-light);
+    margin-bottom: 6px;
+}
+
+.input-node input,
+.select-wrapper select {
+    width: 100%;
+    padding: 10px 12px; /* Tighter inputs */
+    font-family: inherit;
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: var(--text-dark);
+    background: var(--white);
+    border: 1px solid var(--warm-gray);
+    border-radius: var(--radius-sm);
+    appearance: none;
+}
+
+.select-wrapper {
+    position: relative;
+}
+.select-wrapper::after {
+    content: "▼";
+    font-size: 0.6rem;
+    position: absolute;
+    right: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    pointer-events: none;
+    color: var(--text-light);
+}
+
+.input-node input:focus,
+.select-wrapper select:focus {
+    outline: none;
+    border-color: var(--soft-teal);
+}
+
+.node-divider {
+    display: none;
+    justify-content: center;
+    color: var(--warm-gray);
+    padding-bottom: 10px;
+}
+
+.node-divider svg {
+    width: 20px;
+    height: 20px;
+}
+
+.tlz-trigger-btn {
+    background: var(--soft-teal);
+    color: var(--white);
+    font-family: inherit;
+    font-size: 1rem;
+    font-weight: 600;
+    padding: 10px 16px;
+    border: none;
+    border-radius: var(--radius-sm);
+    cursor: pointer;
+    transition: background 0.2s;
+    height: 100%;
+}
+
+.tlz-trigger-btn:hover {
+    background: var(--navy-blue);
+}
+
+/* ==========================================================================
+   Data Grid (Masonry Cards)
+   ========================================================================== */
+.section-heading {
+    font-size: 1.1rem;
+    color: var(--navy-blue);
+    margin-bottom: var(--space-sm);
+}
+
+.metrics-grid {
+    display: grid;
+    /* Cards will fit tightly */
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 12px; /* Very tight gap */
+}
+
+.metric-card {
+    background: var(--white);
+    /* REMOVED colored left border. Just a simple unified border now. */
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-sm);
+    padding: 12px; /* Reduced padding */
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.metric-card:hover {
+    border-color: var(--warm-gray);
+    box-shadow: var(--shadow-sm);
+}
+
+/* Make highlight card subtle, no borders */
+.highlight-card {
+    background: var(--navy-blue);
+    border-color: var(--navy-blue);
+}
+
+.highlight-card .metric-name,
+.highlight-card .metric-symbol,
+.highlight-card .metric-value {
+    color: var(--white);
+}
+
+.highlight-card .action-pill {
+    background: rgba(255, 255, 255, 0.15);
+    color: var(--white);
+}
+
+.highlight-card .action-pill:hover {
+    background: var(--soft-teal);
+}
+
+.metric-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.metric-name {
+    font-weight: 600;
+    color: var(--text-light);
+    font-size: 0.8rem;
+    text-transform: uppercase;
+}
+
+.metric-symbol {
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--navy-blue);
+}
+
+.metric-value {
+    font-size: 1.4rem; /* Scaled down drastically */
+    font-weight: 600;
+    color: var(--navy-blue);
+    line-height: 1;
+}
+
+.metric-actions {
+    display: flex;
+    gap: 6px;
+    margin-top: 4px;
+    padding-top: 8px;
+    border-top: 1px solid var(--light-bg);
+}
+
+.action-pill {
+    font-size: 0.75rem;
+    background: var(--light-bg);
+    color: var(--text-light);
+    padding: 2px 8px;
+    border-radius: 4px;
+}
+
+.action-pill:hover {
+    background: var(--warm-gray);
+    color: var(--text-dark);
+}
+
+/* ==========================================================================
+   Ecosystem Tools (Footer grid)
+   ========================================================================== */
+.tlz-toolkit-expansion {
+    border-top: 1px solid var(--border-color);
+    padding-top: var(--space-lg);
+}
+
+.toolkit-title {
+    font-size: 1.1rem;
+    margin-bottom: var(--space-md);
+    color: var(--navy-blue);
+}
+
+.toolkit-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 12px; /* Tight gap */
+}
+
+.tool-node {
+    display: flex;
+    align-items: center;
+    padding: 12px;
+    background: var(--white);
+    border: 1px solid var(--border-color); /* No colored side borders */
+    border-radius: var(--radius-sm);
+}
+
+.tool-node:hover {
+    border-color: var(--soft-teal);
+}
+
+.node-data {
+    display: flex;
+    flex-direction: column;
+}
+
+.node-data strong {
+    color: var(--navy-blue);
+    font-size: 0.95rem;
+}
+
+.node-data span {
+    font-size: 0.8rem;
+    color: var(--text-light);
+    margin-top: 2px;
+}
+
+/* ==========================================================================
+   Footer
+   ========================================================================== */
+.tlz-base-footer {
+    background: var(--navy-blue);
+    border-top: 1px solid var(--border-color);
+    padding: var(--space-md) 0;
+    margin-top: auto;
+    color: var(--white);
+}
+
+.footer-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.footer-brand {
+    font-weight: 600;
+    color: var(--white);
+    font-size: 1rem;
+}
+
+.footer-legal {
+    font-size: 0.8rem;
+    color: var(--warm-gray);
+}
+.tlz-base-footer a:hover {
+    color: var(--soft-teal);
+}
+
+/* ==========================================================================
+   Media Queries (Mobile to Desktop)
+   ========================================================================== */
+
+/* Mobile view (Tablets and below) */
+@media (max-width: 860px) {
+    .tlz-quick-search {
+        order: 2;
+        max-width: 100%;
+        flex-basis: 100%;
+    }
+
+    .mobile-menu-toggle {
+        display: block;
+        order: 1;
+    }
+
+    .tlz-brand-mark {
+        order: 0;
+    }
+
+    /* Hide nav by default, show when toggled via JS */
+    .tlz-primary-nav {
+        display: none;
+        order: 3;
+        width: 100%;
+        flex-direction: column;
+        align-items: flex-start;
+        border-top: 1px solid var(--border-color);
+        padding-top: var(--space-sm);
+    }
+
+    .tlz-primary-nav.is-open {
+        display: flex;
+    }
+
+    .tlz-primary-nav a {
+        width: 100%;
+        padding: 8px 12px;
+    }
+}
+
+/* Desktop sizing adjustments */
+@media (min-width: 861px) {
+    .tlz-quick-search {
+        order: 2;
+        margin-left: auto;
+    }
+    .tlz-primary-nav {
+        order: 3;
+    }
+
+    .calc-engine {
+        grid-template-columns: 1fr 1.5fr auto 1.5fr 1fr;
+        align-items: center;
+    }
+
+    .input-node label {
+        margin-bottom: 4px;
+    }
+    .node-divider {
+        display: flex;
+    }
+    .tlz-trigger-btn {
+        height: 40px;
+        align-self: end;
+    }
+}
+/* ==========================================================================
+   Inner Page Layouts & Content Styling
+   ========================================================================== */
+.tlz-split-layout {
+    display: grid;
+    gap: var(--space-lg);
+    grid-template-columns: 1fr;
+    margin-top: 0;
+}
+
+@media (min-width: 861px) {
+    .tlz-split-layout {
+        grid-template-columns: 1fr 300px;
+        align-items: start;
+    }
+}
+
+/* Ad Slot Wrapping */
+.tlz-ad-slot {
+    display: flex;
+    justify-content: center;
+    margin: var(--space-md) 0;
+    width: 100%;
+    overflow: hidden;
+}
+
+/* Article Typography */
+.tlz-article {
+    color: var(--text-dark);
+}
+
+.tlz-article h1 {
+    font-size: 1.8rem;
+    color: var(--navy-blue);
+    margin-bottom: var(--space-sm);
+    line-height: 1.2;
+}
+
+.tlz-article h2 {
+    font-size: 1.4rem;
+    color: var(--navy-blue);
+    margin: var(--space-lg) 0 var(--space-sm);
+}
+
+.tlz-article h3 {
+    font-size: 1.15rem;
+    color: var(--navy-blue);
+    margin: var(--space-md) 0 var(--space-sm);
+}
+
+.tlz-article p {
+    margin-bottom: var(--space-md);
+    line-height: 1.6;
+}
+
+.tlz-article strong {
+    color: var(--navy-blue);
+}
+
+/* Lists in Articles */
+.tlz-list-answers {
+    list-style: none;
+    margin-bottom: var(--space-lg);
+    background: var(--white);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-sm);
+    padding: var(--space-md);
+}
+
+.tlz-list-answers li {
+    margin-bottom: var(--space-sm);
+    position: relative;
+    padding-left: 16px;
+}
+
+.tlz-list-answers li:last-child {
+    margin-bottom: 0;
+}
+
+.tlz-list-answers li::before {
+    content: "•";
+    color: var(--soft-teal);
+    position: absolute;
+    left: 0;
+    font-weight: bold;
+}
+
+/* Formula Box Callout */
+.tlz-formula-box {
+    background: var(--light-bg);
+    border-left: 3px solid var(--soft-teal);
+    padding: var(--space-md);
+    margin: var(--space-md) 0;
+    font-family: monospace;
+    font-size: 1.1rem;
+    color: var(--navy-blue);
+    border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+}
+
+/* Clean Data Tables */
+.tlz-data-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: var(--space-lg) 0;
+    background: var(--white);
+    font-size: 0.95rem;
+    box-shadow: var(--shadow-sm);
+    border-radius: var(--radius-sm);
+    overflow: hidden;
+}
+
+.tlz-data-table th,
+.tlz-data-table td {
+    padding: 12px 16px;
+    text-align: left;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.tlz-data-table th {
+    background: var(--light-bg);
+    color: var(--navy-blue);
+    font-weight: 600;
+}
+
+.tlz-data-table tr:last-child td {
+    border-bottom: none;
+}
+
+.tlz-data-table tbody tr {
+    transition: background 0.2s ease;
+}
+
+.tlz-data-table tbody tr:hover {
+    background: var(--light-bg);
+}
+
+/* Sidebar Widgets */
+.tlz-related-widget {
+    background: var(--white);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-sm);
+    padding: var(--space-md);
+    margin-bottom: var(--space-md);
+}
+
+.tlz-related-widget h4 {
+    font-size: 1.05rem;
+    color: var(--navy-blue);
+    margin-bottom: var(--space-sm);
+    padding-bottom: 8px;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.tlz-related-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.tlz-related-list a {
+    font-size: 0.9rem;
+    color: var(--text-light);
+    display: flex;
+    align-items: center;
+    transition: all 0.2s ease;
+}
+
+.tlz-related-list a::before {
+    content: "→";
+    margin-right: 8px;
+    color: var(--warm-gray);
+    transition: color 0.2s ease;
+}
+
+.tlz-related-list a:hover {
+    color: var(--navy-blue);
+    transform: translateX(4px);
+}
+
+.tlz-related-list a:hover::before {
+    color: var(--soft-teal);
+}
+
+/* ==========================================================================
+   Sidebar Calculator Overrides
+   ========================================================================== */
+
+/* Gives the sidebar calculator a nice widget header */
+.sidebar-widget-title {
+    font-size: 1.05rem;
+    color: var(--navy-blue);
+    margin-bottom: var(--space-md);
+    padding-bottom: 8px;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.sidebar-calc {
+    margin-bottom: var(--space-lg);
+    border-top: 3px solid var(--soft-teal); /* Highlights it as an interactive tool */
+}
+
+/* Forces the grid to stack vertically regardless of screen size */
+.sidebar-calc .calc-engine {
+    grid-template-columns: 1fr !important;
+    gap: var(--space-md);
+}
+
+/* Removes the horizontal arrow since it's vertical now */
+.sidebar-calc .node-divider {
+    display: none !important;
+}
+
+/* Make the calculate button span full width naturally */
+.sidebar-calc .tlz-trigger-btn {
+    width: 100%;
+    margin-top: var(--space-sm);
+    height: 45px;
+}
+/* Strip Google's default widget backgrounds and borders */
+.gsc-control-wrapper-cse {
+    padding: 0 !important;
+}
+
+.gsc-control-cse {
+    background-color: transparent !important;
+    border: none !important;
+    padding: 0 !important;
+}
+
+/* Force results to be flat on the page, no overlays */
+.gsc-results-wrapper-nooverlay {
+    background: transparent !important;
+    box-shadow: none !important;
+}
+
+.gsc-above-wrapper-area {
+    border-bottom: none !important;
+}
+
+/* Style the individual search results to match Toolnized */
+.gsc-webResult.gsc-result {
+    border-bottom: 1px solid var(--border-color) !important;
+    padding-bottom: 20px !important;
+    margin-bottom: 20px !important;
+}
+
+/* Typography overrides */
+.gs-title a {
+    color: var(--navy-blue) !important;
+    font-weight: 600 !important;
+    text-decoration: none !important;
+    font-size: 1.1rem !important;
+}
+
+.gs-title a:hover {
+    color: var(--soft-teal) !important;
+}
+
+.gs-snippet {
+    color: var(--text-dark) !important;
+    line-height: 1.6 !important;
+    font-size: 0.95rem !important;
+    margin-top: 5px !important;
+}
+
+.gsc-url-top {
+    color: var(--text-light) !important;
+    margin-top: 2px !important;
+}
+
+/* Clean up pagination at the bottom */
+.gsc-cursor-page {
+    color: var(--navy-blue) !important;
+    background: var(--white) !important;
+}
+
+.gsc-cursor-current-page {
+    background: var(--soft-teal) !important;
+    color: var(--white) !important;
+}
+
+/* Hide the 'Enhanced by Google' branding if you want a cleaner look */
+.gcsc-find-more-on-google-branding {
+    display: none !important;
+}
